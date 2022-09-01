@@ -1,6 +1,6 @@
 SRCS = main.cpp Fixed.cpp
 
-NAME = fixed
+NAME = a.out
 
 CC = clang++
 RM = rm -f

@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <cmath>
 
 const int Fixed::_literal = 8;
 
@@ -16,7 +17,7 @@ Fixed::Fixed(const int raw)
 
 Fixed::Fixed(const float raw)
 {
-	_fixed = (int)(raw * (float)(1 << _literal));
+	_fixed = round(raw * (float)(1 << _literal));
 	std::cout << "Float constructor called" << std::endl;
 }
 
