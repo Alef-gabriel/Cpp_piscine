@@ -154,3 +154,19 @@ Fixed	Fixed::max(Fixed& a, Fixed& b)
 	else
 		return b;
 }
+
+Fixed	Fixed::min(const Fixed& a, const Fixed& b)
+{
+	if ((Fixed)a < (Fixed)b)
+		return a;
+	else
+		return b;
+}
+
+Fixed	Fixed::min(Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return a;
+	else
+		return b;
+}

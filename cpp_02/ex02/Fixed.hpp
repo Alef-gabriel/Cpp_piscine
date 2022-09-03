@@ -31,6 +31,8 @@ class Fixed
 		Fixed operator -- (int);
 		static Fixed max(const Fixed& a, const Fixed& b);
 		static Fixed max(Fixed& a, Fixed& b);
+		static Fixed min(const Fixed& a, const Fixed& b);
+		static Fixed min(Fixed& a, Fixed& b);
 	private:
 		static const int	_literal;
 
