@@ -7,9 +7,7 @@ class Dog: public Animal
     public:
         Dog();
         ~Dog();
-        void makeSound();
-    protected:
-        std::string type;
+        void makeSound() const;
 };
 
 #endif

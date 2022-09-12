@@ -2,14 +2,16 @@
 
 Cat::Cat()
 {
+    std::cout << "Cat constructor called" << std::endl;
     type = "Cat";
 }
 
 Cat::~Cat()
 {
+    std::cout << "Cat destructor called" << std::endl;
 }
 
-void    Cat::makeSound()
+void    Cat::makeSound() const
 {
     std::cout << "Miau!" << std::endl;
 }

@@ -4,13 +4,12 @@
 class Animal
 {
     public:
-        Animal();
         Animal(const Animal& obj);
         std::string getType() const;
         virtual void makeSound() const;
         virtual ~Animal();
-
     protected:
         std::string type;
+        Animal();
 };
 #endif
