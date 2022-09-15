@@ -10,7 +10,6 @@ class FragTrap : public ScavTrap
 		FragTrap(const FragTrap& frag);
 		FragTrap& operator=(const FragTrap& frag);
 		~FragTrap();
-		void attack(const std::string& target);
 		void highFivesGuys(void);
 };
 

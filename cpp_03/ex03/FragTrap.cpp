@@ -40,21 +40,6 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap Destructor called " << this->GetName() <<std::endl;
 }
 
-void	FragTrap::attack(const std::string& target)
-{
-	if (_energyPoints > 0)
-	{
-		std::cout << "\033[1;32m" << "FragTrap " << GetName();
-		std::cout << "\033[1;31m" << " attacks " << target;
-		std::cout << "\033[1;33m" << ", causing " << GetAttackDamage()
-		<< " points of damage!" << "\033[0m" << std::endl;
-		this->_energyPoints--;
-		return ;
-	}
-	std::cout << "\033[1;32m" << "FragTrap "
-	<< GetName() << " is out of energy!" << "\033[0m" << std::endl;
-}
-
 std::ostream& operator<<(std::ostream &outStream, FragTrap const &FragTrap)
 {
 	outStream << "\033[1;33m <<" << "\n------------FragTrap-Status------------\n";
