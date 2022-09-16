@@ -48,7 +48,9 @@
 		"fstream": "cpp",
 		"iomanip": "cpp",
 		"ranges": "cpp",
-		"sstream": "cpp"
+		"sstream": "cpp",
+		"numbers": "cpp",
+		"cinttypes": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
