@@ -6,6 +6,7 @@ Character::Character() : _name("Empty")
 	{
 		_inventory[i] = NULL;
 	}
+	std::cout << "New Nameless Character created !" << '\n';
 }
 
 Character::~Character()
@@ -14,6 +15,7 @@ Character::~Character()
 	{
 		this->unequip(i);
 	}
+	std::cout << "Character " << this->getName() << " destroyed..." << '\n';
 }
 
 Character::Character(std::string name)
@@ -23,12 +25,13 @@ Character::Character(std::string name)
 	{
 		_inventory[i] = NULL;
 	}
-
+	std::cout << "New Character " << name << " created !" << '\n';
 }
 
 Character::Character(Character const & obj)
 {
 	*this = obj;
+	std::cout << "Character " << this->getName() << " duplicated !" << '\n';
 }
 
 std::string const & Character::getName() const
@@ -64,7 +67,7 @@ void	Character::equip(AMateria* m)
 	for (int i = 0; i < 4 && m != NULL; i++)
 	{
 		if (this->_inventory[i] == m){
-			std::cout << "Character " << this->getName() << " already has this materia" << std::endl;
+			std::cout << "Character " << this->getName() << " already has this materia" << '\n';
 			return ;
 		}
 	}
@@ -81,9 +84,9 @@ void	Character::equip(AMateria* m)
 	{
 		if (!this->_inventory[k]){
 			this->_inventory[k] = m;
-			std::cout << this->getName() << " equip index " << k << " with materia " << this->_inventory[k]->getType() << std::endl;
+			std::cout << this->getName() << " equip index " << k << " with materia " << this->_inventory[k]->getType() << '\n';
 			return ;
 		}
 	}
-	std::cout << "Inventory is full !" << std::endl;
+	std::cout << "Inventory is full !" << '\n';
 }
