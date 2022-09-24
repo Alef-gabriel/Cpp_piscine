@@ -21,9 +21,9 @@ $(NAME): $(OBJ)
 all:	$(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf *.o
 
 fclean:	clean
-	rm -rf $(NAME)
+	rm -rf a.out
 
 re:	fclean all

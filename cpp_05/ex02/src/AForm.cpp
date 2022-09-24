@@ -1,4 +1,4 @@
-#include "AForm.hpp"
+#include "../includes/AForm.hpp"
 
 AForm::AForm( void ): _name("Empty"), _signed(false), _signGrade(150), _execGrade(150)
 {
