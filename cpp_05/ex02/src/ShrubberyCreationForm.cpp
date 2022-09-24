@@ -1,16 +1,16 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void): Aform("ShrubberyCreationForm", 145, 137), _target("Empty")
+ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", 145, 137), _target("Empty")
 {
 	std::cout << "For target : " << this->_target << ". Creation of " << *this;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Aform("ShrubberyCreationForm", 25, 5), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 25, 5), _target(target)
 {
 	std::cout << "For target : " << this->_target << ". Creation of " << *this;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src): Aform(src)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src): AForm(src)
 {
 	this->_target = src.getTarget();
 }
@@ -26,20 +26,20 @@ bool	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	{
 		std::string	line;
 		std::string name = this->_target + "_shrubbery";
-		std::ifstream	in("trees.txt");
-		if (in)
+		std::ifstream	file("trees.txt");
+		if (file)
 		{
-			std::ofstream	out(name.c_str());
-			if (out)
+			std::ofstream	newFile(name.c_str());
+			if (newFile)
 			{
-				while (getline(in, line))
-					out << line << '\n';
+				while (getline(file, line))
+					newFile << line << '\n';
 				std::cout << name << " created file!" << '\n';
-				out.close();
+				newFile.close();
 			}
 			else
 				std::cout <<"Error creating file" << '\n';
-			in.close();
+			file.close();
 		}
 		else
 			std::cout <<"Error creating file" << '\n';

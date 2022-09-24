@@ -15,15 +15,13 @@ MAIN = $(addprefix $(SRC), \
 OBJ = $(MAIN:%.c=%.o)
 
 $(NAME): $(OBJ)
-		@$(CC) $(CFLAGS) -c $(SRCS)
+		@$(CC) $(CFLAGS) -c $(MAIN)
 		@$(CC) $(OBJ) -o $(NAME)
 
 all:	$(NAME)
 
 clean:
 	rm -rf $(OBJ)
-	rm -rf ./a.out
-
 
 fclean:	clean
 	rm -rf $(NAME)

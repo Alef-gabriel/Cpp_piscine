@@ -1,16 +1,16 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void): Aform("PresidentialPardonForm", 25, 5), _target("Empty")
+PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonForm", 25, 5), _target("Empty")
 {
 	std::cout << "For target : " << this->_target << ". Creation of " << *this;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target): Aform("PresidentialPardonForm", 25, 5), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
 	std::cout << "For target : " << this->_target << ". Creation of " << *this;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src): Aform(src)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src): AForm(src)
 {
 	this->_target = src.getTarget();
 }
@@ -22,7 +22,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 bool	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	if (Aform::execute(executor))
+	if (AForm::execute(executor))
 	{
 		std::cout << this->_target << " was forgiven for his mistakes !" << '\n';
 		return (true);

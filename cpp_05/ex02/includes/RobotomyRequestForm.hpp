@@ -4,7 +4,7 @@
 #include <ctime>
 #include <cstdlib>
 
-class RobotomyRequestForm: public Aform
+class RobotomyRequestForm: public AForm
 {
 	private:
 		std::string _target;
@@ -20,3 +20,4 @@ class RobotomyRequestForm: public Aform
 };
 
 std::ostream & operator<<(std::ostream & o, RobotomyRequestForm const & i);
+#endif

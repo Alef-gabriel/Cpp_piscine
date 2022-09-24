@@ -2,7 +2,7 @@
 #define PRESIDENTIALPARDONFORM_HPP
 #include "AForm.hpp"
 
-class PresidentialPardonForm: public Aform
+class PresidentialPardonForm: public AForm
 {
 	private:
 		std::string _target;
@@ -18,3 +18,4 @@ class PresidentialPardonForm: public Aform
 };
 
 std::ostream & operator<<(std::ostream &o, PresidentialPardonForm const & i);
+#endif

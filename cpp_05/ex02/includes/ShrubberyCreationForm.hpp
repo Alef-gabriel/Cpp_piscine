@@ -1,8 +1,9 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 #include "AForm.hpp"
+#include <fstream>
 
-class ShrubberyCreationForm : public Aform
+class ShrubberyCreationForm : public AForm
 {
 	private:
 		std::string _target;
@@ -17,3 +18,4 @@ class ShrubberyCreationForm : public Aform
 };
 
 std::ostream & operator<<(std::ostream & o, ShrubberyCreationForm const & i);
+#endif

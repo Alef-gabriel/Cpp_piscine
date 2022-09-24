@@ -1,16 +1,16 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void): Aform("RobotomyRequestForm", 72, 45), _target("Empty")
+RobotomyRequestForm::RobotomyRequestForm(void): AForm("RobotomyRequestForm", 72, 45), _target("Empty")
 {
 	std::cout << "For target : " << this->_target << ". Creation of " << *this;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): Aform("RobotomyRequestForm", 25, 5), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 25, 5), _target(target)
 {
 	std::cout << "For target : " << this->_target << ". Creation of " << *this;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src): Aform(src)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src): AForm(src)
 {
 	this->_target = src.getTarget();
 }
@@ -22,11 +22,15 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 bool	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	std::srand((unsigned int)time(NULL));
-	if (rand() % 2)
-		std::cout << "BZZZZ BZZZZZ " << this->_target << " has been robotomized !" << '\n';
-	else
-		std::cout << "The " << this->_target << " robotomization failed..." << '\n';
+	if (AForm::execute(executor))
+	{
+		std::srand((unsigned int)time(NULL));
+		if (rand() % 2)
+			std::cout << "BZZZZ BZZZZZ " << this->_target << " has been robotomized !" << '\n';
+		else
+			std::cout << "The " << this->_target << " robotomization failed..." << '\n';
+		return (true);
+	}
 	return (true);
 }
 
