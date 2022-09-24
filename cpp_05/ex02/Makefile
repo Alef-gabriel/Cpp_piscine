@@ -1,22 +1,31 @@
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
-
 NAME = a.out
 
 CC = clang++
-RM = rm -f
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+INCLUDE = -I ./includes
 
-$(NAME):
+CFLAGS = -Wall -Werror -Wextra $(INCLUDE)
+
+SRC = ./src/
+
+MAIN = $(addprefix $(SRC), \
+	AForm.cpp  Bureaucrat.cpp  PresidentialPardonForm.cpp \
+	RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp  main.cpp)
+
+OBJ = $(MAIN:%.c=%.o)
+
+$(NAME): $(OBJ)
 		@$(CC) $(CFLAGS) -c $(SRCS)
-		@$(CC) *.o -o $(NAME)
+		@$(CC) $(OBJ) -o $(NAME)
 
 all:	$(NAME)
 
 clean:
-	@$(RM) *.o
+	rm -rf $(OBJ)
+	rm -rf ./a.out
 
-fclean: clean
-	@$(RM) $(NAME)
+
+fclean:	clean
+	rm -rf $(NAME)
 
 re:	fclean all

@@ -1,58 +1,52 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
-	std::cout << '\n' << "*********CREATION TEST*********" << '\n' << '\n';
-	Bureaucrat	john;
-	Bureaucrat	bil("bil", 45);
-	Form		form42("42", 42, 42);
-	Form		form777("777", 777, 777);
-	Form		*form21 = new Form("21", 77, 61);
+	std::cout << std::endl << "---------FORMS CREATION TEST---------" << std::endl << std::endl;
 
-	std::cout << '\n' << "*********COPY AND DEEPNESS TEST*********" << '\n' << '\n';
+	PresidentialPardonForm form("Jack");
+	ShrubberyCreationForm form2("my_beautyfull_ASCII_trees");
+	RobotomyRequestForm form3("Someone");
 
-	Form		form21Copy = Form(*form21);
-	delete form21;
-	std::cout << form21Copy;
+	std::cout << std::endl << "---------SIGN AND EXECUTE TEST---------" << std::endl << std::endl;
 
-	std::cout << '\n' << "*********HI LOW GRADES FORM CREATION TEST*********" << '\n' << '\n';
+	Bureaucrat	random;
+	Bureaucrat	fred("Fred", 1);
 
-	try
-	{
-		Form		form777_1("777_1", 777, 1);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	random.executeForm(form);
+	fred.executeForm(form);
+	fred.executeForm(form2);
+	fred.executeForm(form3);
 
-	try
-	{
-		Form		form3_minus1("3_minus1", 777, -1);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	random.signForm(form);
+	std::cout << form << std::endl;
+	fred.signForm(form);
+	fred.signForm(form3);
+	fred.signForm(form2);
 
-	std::cout << "\n\n*********SIGNS TESTS*********\n\n" << '\n';
+	random.executeForm(form);
+	fred.executeForm(form);
+	fred.executeForm(form3);
+	fred.executeForm(form2);
 
-	std::cout << john << '\n';
-	std::cout << bil << '\n';
-	john.signForm(form42);
-	john.signForm(form777);
-	std::cout << form42;
-	std::cout << form777;
-	bil.signForm(form777);
-	bil.signForm(form42);
-	std::cout << form42;
-	std::cout << form777;
-	bil.incrementGrade();
-	bil.incrementGrade();
-	bil.incrementGrade();
-	std::cout << bil;
-	bil.signForm(form42);
-	std::cout << form42;
+	std::cout << std::endl << "---------NEW INCREMENT DECREMENT CHECK TEST---------" << std::endl << std::endl;
+
+	std::cout << random;
+	std::cout << fred << std::endl;
+
+	fred.incrementGrade();
+	fred.incrementGrade();
+	fred.incrementGrade();
+	random.decrementGrade();
+	random.decrementGrade();
+	random.decrementGrade();
+
+	std::cout << fred;
+	std::cout << random << std::endl;
 
 	return (0);
 }
