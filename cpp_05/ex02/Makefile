@@ -4,7 +4,7 @@ CC = clang++
 
 INCLUDE = -I ./includes
 
-CFLAGS = -Wall -Werror -Wextra $(INCLUDE)
+CFLAGS = -Wall -Werror -Wextra -std=c++98 $(INCLUDE)
 
 SRC = ./src/
 
