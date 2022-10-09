@@ -2,7 +2,7 @@ SRCS = ./megaphone.cpp
 
 NAME = megaphone
 
-CC = clang++
+CC = c++
 RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra

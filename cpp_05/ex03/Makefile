@@ -1,6 +1,6 @@
 NAME = a.out
 
-CC = clang++
+CC = c++
 
 INCLUDE = -I ./includes
 

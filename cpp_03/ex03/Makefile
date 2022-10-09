@@ -2,7 +2,7 @@ SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 NAME = a.out
 
-CC = clang++
+CC = c++
 RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98

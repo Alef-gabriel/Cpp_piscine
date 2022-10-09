@@ -2,7 +2,7 @@ SRCS = contact.cpp main.cpp phoneBook.cpp
 
 NAME = phoneBook
 
-CC = clang++
+CC = c++
 RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra

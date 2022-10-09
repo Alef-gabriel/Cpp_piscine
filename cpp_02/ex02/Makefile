@@ -2,7 +2,7 @@ SRCS = main.cpp Fixed.cpp
 
 NAME = a.out
 
-CC = clang++
+CC = c++
 RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
