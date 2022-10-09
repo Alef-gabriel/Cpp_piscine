@@ -23,8 +23,6 @@ MateriaSource::MateriaSource(MateriaSource const & src)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i])
-			delete _inventory[i];
 		this->_inventory[i] = NULL;
 	}
 	*this = src;

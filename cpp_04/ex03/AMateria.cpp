@@ -23,8 +23,7 @@ std::string const & AMateria::getType() const
 
 AMateria & AMateria::operator=(AMateria const & materia)
 {
-	this->_type = materia._type;
-
+	(void)materia;
 	return *this;
 }
 
@@ -34,7 +33,7 @@ AMateria::AMateria(AMateria const & materia)
 	std::cout << this->_type << " AMateria duplicated !" << '\n';
 }
 
-void    AMateria::use(ICharacter& target)
+void	AMateria::use(ICharacter& target)
 {
 	(void)target;
 }
