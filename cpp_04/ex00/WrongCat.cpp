@@ -11,7 +11,7 @@ WrongCat::~WrongCat(void)
 	std::cout << "WrongCat destructor called" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const & obj) : WrongAnimal("WrongCat")
+WrongCat::WrongCat(WrongCat const & obj) : WrongAnimal(obj)
 {
 	*this = obj;
 }

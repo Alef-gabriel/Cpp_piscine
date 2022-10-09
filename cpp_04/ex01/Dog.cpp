@@ -1,36 +1,48 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
-    std::cout << "Dog constructor called" << std::endl;
-    std::string ptr[] = {"I want food! give me food!!"};
-    brain = new Brain(ptr);
-    type = "Dog";
+	std::cout << "Dog constructor called" << std::endl;
+	this->_brain = new Brain;
 }
 
-Dog::~Dog()
+Dog::Dog(Dog const & obj) : Animal(obj)
 {
-    std::cout << "Dog destructor called" << std::endl;
-    delete brain;
+	*this = obj;
 }
 
-Dog::Dog(const Dog& d)
+Dog	& Dog::operator=(Dog const & obj)
 {
-    *this = d;
+	this->_type = obj.getType();
+	this->_brain = new Brain(*obj.getBrain());
+	return (*this);
 }
 
-Dog&    Dog::operator=(const Dog& dog)
+Dog::~Dog(void)
 {
-    this->brain = dog.brain;
-    return *this;
+	delete this->_brain;
+	std::cout << "Dog destructor called" << std::endl;
 }
 
-void    Dog::makeSound() const
+void	Dog::makeSound(void) const
 {
-    std::cout << "Au Au!" << std::endl;
+	std::cout << "Au Au!" << std::endl;
 }
 
-void    Dog::getBrain()
+Brain *Dog::getBrain(void) const
 {
-    brain->getIdeas();
+	return (this->_brain);
+}
+
+std::string Dog::getIdea(void)
+{
+	return NULL;
+}
+
+std::string Dog::getIdea(int i)
+{
+	if (i >= 0 && i < 100)
+		return getBrain()->_ideas[i];
+	else
+		return NULL;
 }

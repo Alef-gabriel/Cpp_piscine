@@ -1,31 +1,48 @@
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat(void) : Animal("Cat")
 {
-    std::cout << "Cat constructor called" << std::endl;
-    std::string ptr[] = {"How lazy, I'm going to sleep a little", "Hello"};
-    brain = new Brain(ptr);
-    type = "Cat";
+	std::cout << "Cat constructor called" << std::endl;
+	this->_brain = new Brain;
 }
 
-Cat::~Cat()
+Cat::Cat(Cat const & obj) : Animal(obj)
 {
-    std::cout << "Cat destructor called" << std::endl;
-    delete brain;
+	*this = obj;
 }
 
-void    Cat::makeSound() const
+Cat	&Cat::operator=(Cat const & obj)
 {
-    std::cout << "Miau!" << std::endl;
+	this->_type = obj.getType();
+	this->_brain = new Brain(*obj.getBrain());
+	return(*this);
 }
 
-Cat::Cat(const Cat& cat)
+Cat::~Cat(void)
 {
-    *this = cat;
+	delete this->_brain;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
-Cat&    Cat::operator=(const Cat& cat)
+void	Cat::makeSound(void) const
 {
-    this->brain = cat.brain;
-    return *this;
+	std::cout << "Miau!" << std::endl;
+}
+
+Brain *Cat::getBrain(void) const
+{
+	return (this->_brain);
+}
+
+std::string Cat::getIdea(void)
+{
+	return NULL;
+}
+
+std::string Cat::getIdea(int i)
+{
+	if (i >= 0 && i < 100)
+		return getBrain()->_ideas[i];
+	else
+		return NULL;
 }

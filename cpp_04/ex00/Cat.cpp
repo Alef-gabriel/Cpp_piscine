@@ -5,7 +5,7 @@ Cat::Cat(void) : Animal("Cat")
 	std::cout << "Cat constructor called" << std::endl;
 }
 
-Cat::Cat(Cat const & obj) : Animal("Cat")
+Cat::Cat(Cat const & obj) : Animal(obj)
 {
 	*this = obj;
 }

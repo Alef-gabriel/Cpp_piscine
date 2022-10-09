@@ -4,16 +4,12 @@
 
 class Brain
 {
-    public:
-        Brain();
-        Brain(std::string arrayOfIdeas[]);
-        Brain(const Brain& brain);
-        Brain& operator = (const Brain& brain);
-        void getIdeas( void );
-        ~Brain();
-    private:
-        void assignArray(std::string arr[]);
-        std::string ideas[100];
+	public:
+		Brain(void);
+		Brain(const Brain& brain);
+		Brain& operator = (const Brain& brain);
+		~Brain(void);
+		std::string _ideas[100];
 };
 
 #endif
