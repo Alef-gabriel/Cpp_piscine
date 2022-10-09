@@ -1,4 +1,4 @@
-SRCS = main.cpp Dog.cpp Animal.cpp Cat.cpp 
+SRCS = main.cpp Dog.cpp Animal.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
 
 NAME = a.out
 

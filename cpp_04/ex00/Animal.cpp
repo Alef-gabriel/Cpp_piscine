@@ -1,27 +1,44 @@
 #include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal() : _type("unknown")
 {
-    std::cout << "Animal constructor called" << std::endl;
-    type = "Animal";
+	std::cout << "Animal " << this->_type << " created !" << std::endl;
 }
+
+Animal::Animal(std::string type) : _type(type)
+{
+	std::cout << "Animal " << this->_type << " created !" << std::endl;
+}
+
 
 Animal::~Animal()
 {
-    std::cout << "Animal destructor called" << std::endl;
+	std::cout << "Animal destructor called" << std::endl;
+}
+
+Animal&	Animal::operator=(Animal const & obj)
+{
+	this->_type = obj._type;
+	return (*this);
 }
 
 Animal::Animal(const Animal& obj)
 {
-    this->type = obj.type;
+	*this = obj;
 }
 
 std::string Animal::getType() const
 {
-    return type;
+	return _type;
 }
 
-void    Animal::makeSound() const
+void	Animal::makeSound() const
 {
-    std::cout << "..." << std::endl;
+	std::cout << "Borur" << std::endl;
+}
+
+std::ostream & operator<<(std::ostream & o, Animal const & i)
+{
+	o << i.getType() << std::endl;
+	return (o);
 }

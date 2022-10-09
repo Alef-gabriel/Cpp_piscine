@@ -4,10 +4,12 @@
 
 class Dog: public Animal
 {
-    public:
-        Dog();
-        ~Dog();
-        void makeSound() const;
+	public:
+		Dog(void);
+		Dog(Dog const & obj);
+		Dog & operator=(Dog const & obj);
+		~Dog(void);
+		void makeSound(void) const;
 };
 
 #endif
