@@ -12,6 +12,10 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 	std::cout << _name << " grade " << _grade << " Bureaucrat called !" << '\n';
 }
 
@@ -23,7 +27,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const & obj)
 
 Bureaucrat &	Bureaucrat::operator=(Bureaucrat const & obj)
 {
-	this->_name = obj.getName();
+	( const_cast<std::string&> (this->_name) ) = obj.getName();
 	this->_grade = obj.getGrade();
 	return (*this);
 }

@@ -8,10 +8,10 @@ class Bureaucrat;
 class AForm
 {
 	private:
-		std::string const _name;
-		bool _signed;
-		int const	_signGrade;
-		int const	_execGrade;
+		const	std::string _name;
+		bool	_signed;
+		const int 	_signGrade;
+		const int	_execGrade;
 		AForm( void );
 	protected:
 		class GradeTooHighException : public std::exception

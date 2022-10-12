@@ -24,7 +24,10 @@ _name(form.getName()), _signGrade(form.getSignGrade()), _execGrade(form.getExecG
 
 Form &	Form::operator=(Form const & src)
 {
+	( const_cast<std::string&> (this->_name) ) = src.getName();
 	this->_signed = src.getSigned();
+	( const_cast<int&> (this->_signGrade) ) = src.getSignGrade();
+	( const_cast<int&> (this->_execGrade) ) = src.getExecGrade();
 	return (*this);
 }
 
