@@ -3,12 +3,12 @@
 
 Span::Span() {
 	this->_lenght = 0;
-	this->_vecNumber = std::list<int>();
+	this->_listNumber = std::list<int>();
 }
 
 Span::Span(unsigned int n) {
 	this->_lenght = n;
-	this->_vecNumber = std::list<int>();
+	this->_listNumber = std::list<int>();
 }
 
 Span::Span(const Span &span) {
@@ -21,22 +21,22 @@ Span::~Span() {
 Span &Span::operator=(const Span &span) {
 	if (this != &span) {
 		this->_lenght = span._lenght;
-		this->_vecNumber = span._vecNumber;
+		this->_listNumber = span._listNumber;
 	}
 	return *this;
 }
 
 void Span::addNumber(int number) {
-	if (this->_vecNumber.size() == this->_lenght)
+	if (this->_listNumber.size() == this->_lenght)
 		throw FullException();
-	this->_vecNumber.push_back(number);
+	this->_listNumber.push_back(number);
 }
 
 int Span::shortestSpan() {
-	if (this->_vecNumber.size() < 2) {
+	if (this->_listNumber.size() < 2) {
 		throw SmallException();
 	}
-	std::list<int> sorted = this->_vecNumber;
+	std::list<int> sorted = this->_listNumber;
 	sorted.sort();
 
 	int min = std::numeric_limits<int>::max();
@@ -52,16 +52,16 @@ int Span::shortestSpan() {
 }
 
 int Span::longestSpan() {
-	if (this->_vecNumber.size() < 2)
+	if (this->_listNumber.size() < 2)
 		throw SmallException();
 	return std::abs(
-		*std::max_element(this->_vecNumber.begin(), this->_vecNumber.end()) -
-			*std::min_element(this->_vecNumber.begin(), this->_vecNumber.end()));
+		*std::max_element(this->_listNumber.begin(), this->_listNumber.end()) -
+			*std::min_element(this->_listNumber.begin(), this->_listNumber.end()));
 }
 
 std::list<int>	Span::getListNumber(void) const
 {
-	return this->_vecNumber;
+	return this->_listNumber;
 }
 
 std::ostream & operator<<(std::ostream & ost ,Span const & obj)

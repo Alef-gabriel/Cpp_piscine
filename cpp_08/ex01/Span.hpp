@@ -11,7 +11,7 @@ class Span
 {
 	private:
 		unsigned int	_lenght;
-		std::list<int> _vecNumber;
+		std::list<int> _listNumber;
 	public:
 		Span(void);
 		Span(Span const & obj);
