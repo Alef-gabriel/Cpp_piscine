@@ -22,7 +22,6 @@ class Span
 		int	shortestSpan(void);
 		int	longestSpan(void);
 		unsigned int getSize(void) const;
-		std::list<int> getListNumber(void) const;
 
 		class FullException: public std::exception
 		{
@@ -42,5 +41,4 @@ class Span
 				}
 		};
 };
-std::ostream & operator<<(std::ostream & ost ,Span const & obj);
 #endif

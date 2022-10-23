@@ -58,16 +58,3 @@ int Span::longestSpan() {
 		*std::max_element(this->_listNumber.begin(), this->_listNumber.end()) -
 			*std::min_element(this->_listNumber.begin(), this->_listNumber.end()));
 }
-
-std::list<int>	Span::getListNumber(void) const
-{
-	return this->_listNumber;
-}
-
-std::ostream & operator<<(std::ostream & ost ,Span const & obj)
-{
-	for (std::list<int>::iterator it = obj.getListNumber().begin(); it != obj.getListNumber().end(); it++) {
-		ost << *it << " ";
-	}
-	return ost;
-}
