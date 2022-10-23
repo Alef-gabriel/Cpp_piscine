@@ -1,15 +1,17 @@
 #ifndef SPAN_CPP
 #define SPAN_CPP
 
+#include <limits>
 #include <iostream>
-#include <vector>
+#include <exception>
+#include <list>
 #include <algorithm>
 
 class Span
 {
 	private:
 		unsigned int	_lenght;
-		std::vector<int> _vector;
+		std::list<int> _vecNumber;
 	public:
 		Span(void);
 		Span(Span const & obj);
@@ -20,6 +22,7 @@ class Span
 		int	shortestSpan(void);
 		int	longestSpan(void);
 		unsigned int getSize(void) const;
+		std::list<int> getListNumber(void) const;
 
 		class FullException: public std::exception
 		{
@@ -39,3 +42,5 @@ class Span
 				}
 		};
 };
+std::ostream & operator<<(std::ostream & ost ,Span const & obj);
+#endif
